@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MuseumService } from '../services/openmuseum.service'
 
 @Component({
@@ -9,6 +9,7 @@ import { MuseumService } from '../services/openmuseum.service'
 
 export class SingleMuseumComponent implements OnInit {
 
+  @Input() reference: string;
   @Input() name: string;
   @Input() opening: string;
   @Input() zip: string;
@@ -16,7 +17,6 @@ export class SingleMuseumComponent implements OnInit {
   @Input() telephone: string;
   @Input() adress: string;
   @Input() website: string;
-  // @Input()reference:any;
 
   constructor(private museumService: MuseumService) { }
 

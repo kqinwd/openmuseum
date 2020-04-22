@@ -1,4 +1,4 @@
-export class MuseumService{
+export class MuseumService {
   museums = [{
     opening: "Ouvert du 16 septembre au 14 juin de 10h à 12h et de 14h à 18h, du  15 juin au 15 septembre de 10h à 18h. Nocturnes en juillet et aout le mercredi et le vendredi jusqu'à 20h",
     name: "Musée Picasso",
@@ -73,7 +73,7 @@ export class MuseumService{
     dep: "ALPES-MARITIMES"
   },
   {
-    opening: "Ouvert du mercredi au lundi de septembre à juin de 15h à 18h et en  juillet-aout de 16h à 19h",
+    opening: "Ouvert du mercredi au lundi de septembre à juin de 15h à 18h et en juillet-aout de 16h à 19h",
     name: "Musée Ciotaden",
     region: "PROVENCE-ALPES-CÔTE D'AZUR",
     adress: "1, Quai Ganteaume",
@@ -213,12 +213,13 @@ export class MuseumService{
   }
   ]
 
-  getMuseumById(reference:any) {
-   const museum = this.museums.find(
-     (s) => {
-       return s.reference === reference;
-     }
-   );
-   return museum;
- }
+  getMuseumByRef(museumRef: string) {
+    const museum = this.museums.find(
+      (s) => {
+        return s.reference === museumRef;
+      }
+    );
+    return museum;
+  }
+
 }

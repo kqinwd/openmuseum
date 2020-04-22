@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes,RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { MuseumService } from './services/openmuseum.service'
 
@@ -11,12 +13,10 @@ import { IndexComponent } from './index/index.component';
 import { MuseumDetailComponent } from './museum-detail/museum-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   { path: 'add', component: AddMuseumComponent },
-  { path: 'singleMusuem', component: SingleMuseumComponent },
-  { path: 'singleMusuem/:reference', component: MuseumDetailComponent },
-  { path: 'museumDetail', component: MuseumDetailComponent},
+  { path: 'singleMuseum', component: SingleMuseumComponent },
+  { path: 'museumDetail/:reference', component: MuseumDetailComponent },
   { path: '', component: IndexComponent },
   { path: 'not-found', component: NotFoundComponent }, // A ajouter à la fin des paths (en dernier)
   { path: '**', redirectTo: 'not-found' },
@@ -35,7 +35,8 @@ const appRoutes:Routes = [
 
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    LeafletModule.forRoot()
   ],
 
   providers: [MuseumService],
