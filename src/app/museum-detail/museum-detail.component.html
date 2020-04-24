@@ -2,86 +2,84 @@
 <div class="row">
 
   <!-- MAP -->
-  <div style="height: 300px;" leaflet [leafletOptions]="options">
+  <div class="col-6">
+    <app-map [museumLocation]="museumLocation"></app-map>
+  </div>
+
+  <!-- Details du musée -->
+  <div class="col-6">
+
+    <article class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <div class="card-title">
+          <!-- <h2 class="h4 mb-3">{{name}}</h2> -->
+        </div>
+        <div class="">
+          <!-- PHOTO -->
+        </div>
+        <!-- Localisation -->
+        <div class="row mb-2">
+          <div class="col-1">
+            📍
+          </div>
+          <div class="col-10">
+            <p class="card-text">
+              {{adress}}<br>
+              {{zip}} {{city | titlecase}}
+            </p>
+          </div>
+        </div>
+        <!-- Phone -->
+        <div class="row mb-2">
+          <div class="col-1">
+            📞
+          </div>
+          <div class="col-10">
+            <p class="card-text"><a href="tel:{{telephone}}">{{telephone}}</a></p>
+          </div>
+        </div>
+        <!-- Fax -->
+        <div class="row mb-2">
+          <div class="col-1">
+            📠
+          </div>
+          <div class="col-10">
+            <p class="card-text">{{fax}}</p>
+          </div>
+        </div>
+        <!-- Website -->
+        <div class="row mb-2">
+          <div class="col-1">
+            💻
+          </div>
+          <div class="col-10">
+            <p class="card-text">
+              <a href="https://{{website}}" target="blank">{{website}}</a>
+            </p>
+          </div>
+        </div>
+        <!-- Opening hours -->
+        <div class="row mb-2">
+          <div class="col-1">
+            🕒
+          </div>
+          <div class="col-10">
+            <p class="card-text">{{opening}}</p>
+          </div>
+        </div>
+        <!-- View detail -->
+        <div class="row mb-2">
+          <div class="col-1">
+            ⬅️
+          </div>
+          <div class="col-10">
+            <p class="card-text"><a routerLink="">Back to museums</a></p>
+          </div>
+        </div>
+
+      </div>
+    </article>
+
   </div>
 
 </div>
-<!-- Details du musée -->
-<div class="col-6">
-
-  <article class="card mb-3 shadow-sm">
-    <div class="card-body">
-      <div class="card-title">
-        <!-- <h2 class="h4 mb-3">{{name}}</h2> -->
-      </div>
-      <div class="">
-        <!-- PHOTO -->
-      </div>
-      <!-- Localisation -->
-      <div class="row mb-2">
-        <div class="col-1">
-          📍
-        </div>
-        <div class="col-10">
-          <p class="card-text">
-            {{adress}}<br>
-            {{zip}} {{city | titlecase}}
-          </p>
-        </div>
-      </div>
-      <!-- Phone -->
-      <div class="row mb-2">
-        <div class="col-1">
-          📞
-        </div>
-        <div class="col-10">
-          <p class="card-text"><a href="tel:{{telephone}}">{{telephone}}</a></p>
-        </div>
-      </div>
-      <!-- Fax -->
-      <div class="row mb-2">
-        <div class="col-1">
-
-        </div>
-        <div class="col-10">
-          <p class="card-text">{{fax}}</p>
-        </div>
-      </div>
-      <!-- Website -->
-      <div class="row mb-2">
-        <div class="col-1">
-          💻
-        </div>
-        <div class="col-10">
-          <p class="card-text">
-            <a href="https://{{website}}" target="blank">{{website}}</a>
-          </p>
-        </div>
-      </div>
-      <!-- Opening hours -->
-      <div class="row mb-2">
-        <div class="col-1">
-          🕒
-        </div>
-        <div class="col-10">
-          <p class="card-text">{{opening}}</p>
-        </div>
-      </div>
-      <!-- View detail -->
-      <div class="row mb-2">
-        <div class="col-10">
-          <p class="card-text"><a routerLink="">Back to museums</a></p>
-        </div>
-      </div>
-
-    </div>
-  </article>
-
-</div>
-
-</div>
-
-<!-- Make sure you put this AFTER Leaflet's CSS -->
-<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-  integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-  crossorigin=""></script>
