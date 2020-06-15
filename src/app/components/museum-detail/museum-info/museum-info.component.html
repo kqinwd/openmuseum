@@ -1,0 +1,70 @@
+<article class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <div class="card-title">
+            <!-- <h2 class="h4 mb-3">{{name}}</h2> -->
+        </div>
+        <div class="">
+            <!-- PHOTO -->
+        </div>
+        <!-- Localisation -->
+        <div *ngIf="museum.address" class="row mb-2">
+            <div class="col-1">
+                📍
+            </div>
+            <div class="col-10">
+                <p class="card-text">
+                    {{museum.address}}<br>
+                    {{museum.cp}} {{ museum.city | titlecase}}
+                </p>
+            </div>
+        </div>
+        <!-- Phone -->
+        <div *ngIf="museum.telephone" class="row mb-2">
+            <div class="col-1">
+                📞
+            </div>
+            <div class="col-10">
+                <p class="card-text"><a href="tel:{{museum.telephone}}">{{museum.telephone}}</a></p>
+            </div>
+        </div>
+        <!-- Fax -->
+        <div *ngIf="museum.fax" class="row mb-2">
+            <div class="col-1">
+                📠
+            </div>
+            <div class="col-10">
+                <p class="card-text">{{museum.fax}}</p>
+            </div>
+        </div>
+        <!-- Website -->
+        <div *ngIf="museum.website" class="row mb-2">
+            <div class="col-1">
+                💻
+            </div>
+            <div class="col-10">
+                <p class="card-text">
+                    <a href="https://{{museum.website}}" target="blank">{{museum.website}}</a>
+                </p>
+            </div>
+        </div>
+        <!-- Opening hours -->
+        <div *ngIf="museum.opening" class="row mb-2">
+            <div class="col-1">
+                🕒
+            </div>
+            <div class="col-10">
+                <p class="card-text">{{museum.opening}}</p>
+            </div>
+        </div>
+        <!-- View detail -->
+        <div class="row mb-2">
+            <div class="col-1">
+                ⬅️
+            </div>
+            <div class="col-10">
+                <p class="card-text"><a routerLink="">Back to museums</a></p>
+            </div>
+        </div>
+
+    </div>
+</article>

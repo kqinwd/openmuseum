@@ -1,35 +1,42 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
 
-import { MuseumService } from '../services/openmuseum.service';
-
 import * as L from 'leaflet';
 
 @Component({
   selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  templateUrl: './museum-map.component.html',
+  styleUrls: ['./museum-map.component.css']
 })
 export class MapComponent implements AfterViewInit {
 
-  @Input() museumLocation: number[];
+  @Input() coordinates: number[];
+
+  icon = {
+    icon: L.icon({
+      iconSize: [25, 41],
+      iconAnchor: [13, 41],
+      iconUrl: '../../../assets//marker-icon.png',
+      shadowUrl: '../../../assets/marker-shadow.png'
+    })
+  };
 
   private map;
 
-  constructor(private museumService: MuseumService) {
-  }
+  constructor() { }
 
   private initMap(): void {
     this.map = L.map('map', {
-      center: [this.museumLocation[0], this.museumLocation[1]],
+      center: this.coordinates,
       zoom: 13
     });
+
     const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: 'OpenMuseum'
     });
 
     tiles.addTo(this.map);
-    const marker = L.marker(this.museumLocation);
+    const marker = L.marker(this.coordinates, this.icon);
     marker.addTo(this.map);
   }
 

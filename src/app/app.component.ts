@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MuseumService } from './services/openmuseum.service'
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,5 @@ import { MuseumService } from './services/openmuseum.service'
 export class AppComponent {
   ngOnInit() {
   }
-  constructor(private museumService: MuseumService) { }
+  constructor() { }
 }

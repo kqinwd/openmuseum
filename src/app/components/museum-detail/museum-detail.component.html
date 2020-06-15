@@ -1,0 +1,13 @@
+<h1 class="mb-3">🏛️ {{museum.name}}</h1>
+<div class="row">
+
+  <!-- MAP -->
+  <div class="col-6">
+    <app-map [coordinates]="museum.coordinates"></app-map>
+  </div>
+
+  <!-- Details du musée -->
+  <div class="col-6">
+    <app-museum-info [museum]="museum"></app-museum-info>
+  </div>
+</div>

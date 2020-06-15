@@ -1,44 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+// import { Routes, RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 
-import { MuseumService } from './services/openmuseum.service'
-
+// Components
 import { AppComponent } from './app.component';
-import { AddMuseumComponent } from './add-museum/add-museum.component';
-import { IndexComponent } from './index/index.component';
-import { MuseumDetailComponent } from './museum-detail/museum-detail.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { SingleMuseumComponent } from './single-museum/single-museum.component';
-import { MapComponent } from './map/map.component';
-
-const appRoutes: Routes = [
-  { path: 'add', component: AddMuseumComponent },
-  { path: 'singleMuseum', component: SingleMuseumComponent },
-  { path: 'museumDetail/:reference', component: MuseumDetailComponent },
-  { path: '', component: IndexComponent },
-  { path: 'not-found', component: NotFoundComponent }, // A ajouter à la fin des paths (en dernier)
-  { path: '**', redirectTo: 'not-found' },
-]
+import { AddMuseumComponent } from './components/add-museum/add-museum.component';
+import { IndexComponent } from './components/museums-list/museums-list.component';
+import { MuseumDetailComponent } from './components/museum-detail/museum-detail.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { SingleMuseumComponent } from './components/museums-list/museums-list-item/museums-list-item.component';
+import { MapComponent } from './components/museum-detail/museum-map/museum-map.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { MuseumInfoComponent } from './components/museum-detail/museum-info/museum-info.component';
 
 @NgModule({
 
   declarations: [
     AppComponent,
-    SingleMuseumComponent,
-    IndexComponent,
     AddMuseumComponent,
-    MuseumDetailComponent,
-    NotFoundComponent,
+    IndexComponent,
+    SingleMuseumComponent,
     MapComponent,
+    MuseumDetailComponent,
+    MuseumInfoComponent,
+    NotFoundComponent,
+
+    NavbarComponent,
   ],
 
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
+    // RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    AppRoutingModule
   ],
 
-  providers: [MuseumService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 

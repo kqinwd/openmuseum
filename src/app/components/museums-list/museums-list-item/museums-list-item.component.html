@@ -1,7 +1,7 @@
 <article class="card mb-3 shadow-sm">
   <div class="card-body">
     <div class="card-title">
-      <h2 class="h4 mb-3">{{name}}</h2>
+      <h2 class="h4 mb-3">{{ museum.name }}</h2>
     </div>
 
     <div class="">
@@ -14,22 +14,21 @@
       </div>
       <div class="col-10">
         <p class="card-text">
-          {{adress}}<br>
-          {{zip}} {{city | titlecase}}
+          {{ museum.city | titlecase }}
         </p>
       </div>
     </div>
     <!-- Phone -->
-    <div class="row mb-2">
+    <!-- <div class="row mb-2">
       <div class="col-1">
         📞
       </div>
       <div class="col-10">
         <p class="card-text"><a href="tel:{{telephone}}">{{telephone}}</a></p>
       </div>
-    </div>
+    </div> -->
     <!-- Website -->
-    <div class="row mb-2">
+    <!-- <div class="row mb-2">
       <div class="col-1">
         💻
       </div>
@@ -38,25 +37,25 @@
           <a href="https://{{website}}" target="blank">{{website}}</a>
         </p>
       </div>
-    </div>
+    </div> -->
     <!-- Opening hours -->
-    <div class="row mb-2">
+    <!-- <div class="row mb-2">
       <div class="col-1">
         🕒
       </div>
       <div class="col-10">
         <p class="card-text">{{opening}}</p>
       </div>
-    </div>
+    </div> -->
     <!-- View detail -->
     <div class="row mb-2">
       <div class="col-1">
         ➕
       </div>
       <div class="col-10">
-        <p class="card-text"><a [routerLink]="['museumDetail/' , reference]">View details</a></p>
+        <p class="card-text"><a [routerLink]="['/museumDetail' , museum._id]">View details</a></p>
       </div>
-    </div>
 
+    </div>
   </div>
 </article>
